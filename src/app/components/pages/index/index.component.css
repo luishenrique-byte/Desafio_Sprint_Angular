@@ -1,0 +1,61 @@
+.principal {
+  background-image: url("../../../../../public/assets/img/ranger.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 85%;
+  height: 100vh;
+  position: relative;
+  font-family: "inter", "arial", sans-serif;
+}
+
+.principal-menu-nav {
+  margin: 15px 25px;
+  user-select: none;
+  cursor: pointer;
+}
+
+#principal-menu-open {
+    font-size: 36px;
+}
+
+
+#principal-menu-close {
+  display: none;
+  font-size: 36px;
+}
+
+.principal-sistema {
+  width: 40%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: rgba(255, 255, 255, 0.745);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 2px solid hsl(0, 0%, 60%);
+}
+
+.principal-sistema h3 {
+  color: hsl(0, 0%, 30%);
+  font-size: 1.5em;
+  padding: 15px 25px;
+  font-weight: 500;
+}
+
+.principal-sistema-divisoria {
+  border-bottom: 2px solid hsl(0, 0%, 60%);
+  width: 100%;
+}
+
+.principal-sistema p {
+  font-size: 1em;
+  color: black;
+  padding: 15px 25px;
+  font-weight: 300;
+}

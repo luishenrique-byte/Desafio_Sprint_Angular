@@ -1,0 +1,103 @@
+.principal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.secao-imagem {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.secao-imagem-foto {
+    width: 80%;
+    object-fit: contain;
+}
+
+.secao-login {
+    background-color: hsl(0, 0%, 95%);
+}
+
+.secao-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.secao-login-logo {
+    width: 30%;
+}
+
+.secao-login-forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    margin: 25px;
+}
+
+.secao-login-usuario, .secao-login-senha {
+    width: 100%;
+    position: relative;
+}
+
+.secao-login-input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 40px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid hsl(0, 0%, 50%);
+    transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.secao-login-input:focus::placeholder {
+    transition: color 0.3s ease-in-out;
+}
+
+.secao-login-input:focus {
+    border: 1px solid #1b357e;
+    padding: 10px;
+    padding-left: 40px;
+}
+
+.secao-login-input:focus::placeholder {
+    color: #1b357e;
+}
+
+.secao-login-botao {
+    width: 100%;
+    padding: 10px 5px;
+    cursor: pointer;
+    background-color: #1b357e;
+    color: hsl(0, 0%, 90%);
+    outline: none; 
+    border-radius: 5px;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.secao-login-botao:hover {
+    background-color: #162d6c;
+}
+
+.secao-login-container-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5px;
+    width: 100%;
+    gap: 5px;
+}
+
+.secao-login-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    user-select: none;
+}
+

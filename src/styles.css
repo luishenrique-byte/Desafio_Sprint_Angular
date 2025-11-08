@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+     font-family: "Stack Sans Text", sans-serif;
+}
+
+.secao-login-container-toggle-label {
+    user-select: none;
+}
