@@ -2,21 +2,24 @@
     <nav class="cabecalho-nav">
         <span class="material-symbols-outlined cabecalho-nav-menu" (click)="mostrarSidebar()">menu</span>
     </nav>
-    
     <div class="cabecalho-nav-perfil"></div>
 </header>
 
 <div class="sidebar" [ngClass]="{'ativo': ativo, 'inativo': !ativo}"> 
+    
+    <div>
+        <span class="material-symbols-outlined cabecalho-nav-close" (click)="esconderSidebar()">close</span>
+        <ul class="sidebar-list">
+            <div class="sidebar-list-container">
+                <li class="sidebar-list-item" routerLink="/index" routerLinkActive="ativo"><a href="/index">Home</a></li>
+            </div>
+            <div class="sidebar-list-container">
+                <li class="sidebar-list-item" routerLink="/dashboard" routerLinkActive="ativo"><a href="/dashboard">Dashboard</a></li>
+            </div>
+        </ul>
+    </div>
 
-    <span class="material-symbols-outlined cabecalho-nav-close" (click)="esconderSidebar()">close</span>
-
-    <ul class="sidebar-list">
-        <div class="sidebar-list-container">
-            <li class="sidebar-list-item" routerLink="/index" routerLinkActive="ativo"><a href="/index">Home</a></li>
-        </div>
-        <div class="sidebar-list-container">
-            <li class="sidebar-list-item" routerLink="/dashboard" routerLinkActive="ativo"><a href="/dashboard">Dashboard</a></li>
-        </div>
-    </ul>
-
+    <div class="logo_ford">
+        <img src="assets/img/ford.png" alt="">
+    </div>
 </div>
