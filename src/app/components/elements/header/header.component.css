@@ -56,6 +56,7 @@
 
 .sidebar-list {
   list-style-type: none;
+  padding: 0;
 }
 
 .sidebar-list-item {

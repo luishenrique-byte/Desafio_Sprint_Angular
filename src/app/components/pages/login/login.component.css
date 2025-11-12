@@ -101,3 +101,11 @@
     user-select: none;
 }
 
+.secao-login-eye {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    user-select: none;
+    color: hsl(0, 0%, 50%);
+}

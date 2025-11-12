@@ -11,12 +11,23 @@
                     <span class="material-symbols-outlined secao-login-icon">person</span>
                 </div>
                 <div class="secao-login-senha">
-                    <input type="password" placeholder="Digite sua senha" class="secao-login-input">
+                    <input [type]= "mostrarSenha ? 'text' : 'password'"  placeholder="Digite sua senha" class="secao-login-input">
+
                     <span class="material-symbols-outlined secao-login-icon">lock</span>
+                    
+                    
+                    <span class="material-symbols-outlined secao-login-eye" (click)="toggleSenha()">
+                        @if (mostrarSenha) {
+                            visibility
+                        } @else {
+                            visibility_off
+                        }
+                    </span>
                 </div>
-                <div class="secao-login-container-toggle">
-                    <label for="lembrar" class="secao-login-container-toggle-label">Lembre-se de mim</label>
-                    <input type="checkbox" name="lembrar" id="lembrar">
+                <div
+                    class="form-check form-switch form-switch d-flex align-items-center justify-content-end gap-2 w-100">
+                    <label class="form-check-label" for="switchCheckChecked">Login automaticamente</label>
+                    <input class="form-check-input m-0" type="checkbox" role="switch" id="switchCheckChecked" checked>
                 </div>
                 <button class="secao-login-botao">Entrar</button>
             </form>

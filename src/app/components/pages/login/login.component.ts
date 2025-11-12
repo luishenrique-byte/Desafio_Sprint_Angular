@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  mostrarSenha = false;
 
+  toggleSenha() {
+    this.mostrarSenha = !this.mostrarSenha;
+  }
 }
