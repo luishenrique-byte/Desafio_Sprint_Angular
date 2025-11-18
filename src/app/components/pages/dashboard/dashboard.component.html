@@ -5,17 +5,23 @@
             Dashboard FORD
         </h1>
     </section>
-
+    
     <section class="dashboard-principal-container">
         <div class="dashboard-principal-data">
             <h3 class="dashboard-principal-data-titulo">Veículo</h3>
             <div class="dashboard-principal-data-conteudo dashboard-option">
-                <select name="" id="">
-                    <option value=""></option>
-                    <option value="">Ranger</option>
-                    <option value="">Mustang</option>
-                    <option value="">Territory</option>
-                    <option value="">Bronco Sport</option>
+                <select 
+                    name="veiculo" 
+                    id="veiculo-select" 
+                    class="form-select"
+                    (change)="selecionarVeiculo($event)">
+                    
+                    <option 
+                        *ngFor="let veiculo of listaVeiculos" 
+                        [value]="veiculo.vehicle"
+                        [selected]="veiculo.vehicle === veiculoSelecionado?.vehicle">
+                        {{ veiculo.vehicle }}
+                    </option>
                 </select>
             </div>
         </div>
@@ -23,7 +29,7 @@
         <div class="dashboard-principal-data">
             <h3 class="dashboard-principal-data-titulo">Total de vendas</h3>
             <div class="dashboard-principal-data-conteudo">
-                <h3>-</h3>
+                <h3>{{ veiculoSelecionado?.volumetotal | number }}</h3>
                 <p>Unid.</p>
             </div>
         </div>
@@ -31,7 +37,7 @@
         <div class="dashboard-principal-data">
             <h3 class="dashboard-principal-data-titulo">Conectados</h3>
             <div class="dashboard-principal-data-conteudo">
-                <h3>-</h3>
+                <h3>{{ veiculoSelecionado?.connected | number }}</h3>
                 <p>Unid.</p>
             </div>
         </div>
@@ -39,51 +45,82 @@
         <div class="dashboard-principal-data">
             <h3 class="dashboard-principal-data-titulo">Update Software</h3>
             <div class="dashboard-principal-data-conteudo">
-                <h3>-</h3>
+                <h3>{{ veiculoSelecionado?.softwareUpdates | number }}</h3>
                 <p>Unid.</p>
             </div>
         </div>
     </section>
 
     <section class="dashboard-principal-imagem">
-        <!-- <img src="assets/img/ranger.png" alt="" class="dashboard-principal-imagem-carro"> -->
+        <img 
+            *ngIf="veiculoSelecionado?.vehicle"
+            [src]="getImagePath()" 
+            [alt]="veiculoSelecionado?.vehicle" 
+            class="dashboard-principal-imagem-carro">
+    </section>
+
+    <section class="mb-4">
+        <div class="input-group" style="max-width: 400px; margin: 20px auto;">
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Buscar por Código VIN (20 caracteres)"
+                maxlength="20"  [(ngModel)]="codigoBusca"
+                (keyup.enter)="buscarPorCodigo()"> </div>
+    
+        <div *ngIf="erroBusca" class="alert alert-danger text-center" role="alert" style="max-width: 400px; margin: 0 auto;">
+            {{ mensagemErro }}
+        </div>
     </section>
 
     <section class="dashboard-principal-infos">
         <div class="dashboard-principal-datas">
             <h3>Código-Vin</h3>
             <div>
-                -
+                {{ veiculoDetalhe ? codigoBusca : '-' }} 
             </div>
         </div>
+        
         <div class="dashboard-principal-datas">
             <h3>Odômetro</h3>
             <div>
-                -
+                {{ veiculoDetalhe?.odometro | number }} km
             </div>
         </div>
+        
         <div class="dashboard-principal-datas">
             <h3>Nível de Combustível</h3>
             <div>
-                -
+                {{ veiculoDetalhe?.nivelCombustivel }} %
             </div>
         </div>
+        
         <div class="dashboard-principal-datas">
             <h3>Status</h3>
             <div>
-                -
+                <span *ngIf="veiculoDetalhe?.status === 'on'" style="color: green;">
+                    ON-LINE
+                </span>
+                <span *ngIf="veiculoDetalhe?.status === 'off'" style="color: red;">
+                    OFF-LINE
+                </span>
+                <span *ngIf="!veiculoDetalhe?.status">
+                    -
+                </span>
             </div>
         </div>
+        
         <div class="dashboard-principal-datas">
             <h3>Lat.</h3>
             <div>
-                -
+                {{ veiculoDetalhe?.lat || '-' }}
             </div>
         </div>
+        
         <div class="dashboard-principal-datas">
             <h3>Long.</h3>
             <div>
-               -
+                {{ veiculoDetalhe?.long || '-' }}
             </div>
         </div>
     </section>

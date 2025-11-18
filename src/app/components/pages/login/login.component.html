@@ -7,11 +7,23 @@
             <img src="assets/img/ford.png" alt="" class="secao-login-logo">
             <form action="#" class="secao-login-forms">
                 <div class="secao-login-usuario">
-                    <input type="text" placeholder="Digite seu usuário" class="secao-login-input">
+                    <input 
+                    type="text" 
+                    placeholder="Digite seu usuário" 
+                    class="secao-login-input"
+                    [(ngModel)]="usuario" 
+                    name="usuario" 
+                    required>
                     <span class="material-symbols-outlined secao-login-icon">person</span>
                 </div>
                 <div class="secao-login-senha">
-                    <input [type]= "mostrarSenha ? 'text' : 'password'"  placeholder="Digite sua senha" class="secao-login-input">
+                    <input 
+                    [type]= "mostrarSenha ? 'text' : 'password'"  
+                    placeholder="Digite sua senha" 
+                    class="secao-login-input"
+                    [(ngModel)]="senha" 
+                    name="senha"
+                    required>
 
                     <span class="material-symbols-outlined secao-login-icon">lock</span>
                     
@@ -29,7 +41,10 @@
                     <label class="form-check-label" for="switchCheckChecked">Login automaticamente</label>
                     <input class="form-check-input m-0" type="checkbox" role="switch" id="switchCheckChecked" checked>
                 </div>
-                <button class="secao-login-botao">Entrar</button>
+                <button 
+                class="secao-login-botao"
+                (click)="fazerLogin()"
+                >Entrar</button>
             </form>
         </div>
     </section>
