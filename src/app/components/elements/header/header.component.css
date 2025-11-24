@@ -95,3 +95,8 @@ a {
 .sidebar-list-item.ativo {
   border-left: 5px solid orange;
 }
+
+#logout{
+  border-left: 5px solid red;
+  background-color: hsl(0, 62%, 80%);
+}

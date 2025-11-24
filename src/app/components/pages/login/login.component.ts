@@ -33,11 +33,13 @@ export class LoginComponent {
       next: (resposta) => {
         // Se der certo: salva o token e vai pro dashboard
         this.authService.saveToken(resposta);
-        this.router.navigate(['/dashboard']);
+        localStorage.setItem('logged','true');
+        this.router.navigate(['/index']);
       },
       error: (erro) => {
         // Se der erro: mostra mensagem
         this.mensagemErro = 'Usuário ou senha incorretos!';
+        alert(this.mensagemErro);
       }
     });
   }

@@ -12,4 +12,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 })
 export class AppComponent {
   title = 'fordenter-sprint07-angular';
+
+  
+
 }

@@ -10,6 +10,15 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
   ativo = false;
+  isLogout = false;
+
+  mensagemLogout() {
+
+    if (localStorage.getItem('logged') === 'true') {
+      alert('Você será desconectado da sua conta')
+      localStorage.setItem('logged', 'false');
+    }
+  }
 
   mostrarSidebar() {
     this.ativo = !this.ativo;

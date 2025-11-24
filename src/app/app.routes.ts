@@ -3,11 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/pages/index/index.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
+
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
-    {path: 'index', component: IndexComponent},
-    {path: 'dashboard', component: DashboardComponent}
+    {path: 'index', component: IndexComponent, canActivate: [AuthGuard] },
+    {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+    {path: '**', component: LoginComponent}
 ];
 // @NgModule serve para agrupar componentes, serviços e confgurações que pertencem a uma mesma parte da aplicação.
 @NgModule({

@@ -16,6 +16,9 @@
             <div class="sidebar-list-container">
                 <li class="sidebar-list-item" routerLink="/dashboard" routerLinkActive="ativo"><a href="/dashboard">Dashboard</a></li>
             </div>
+            <div class="sidebar-list-container">
+                <li class="sidebar-list-item" id="logout" routerLink="" routerLinkActive="ativo" (click)="isLogout=true; mensagemLogout()"><a href="">Logout</a></li>
+            </div>
         </ul>
     </div>
 
