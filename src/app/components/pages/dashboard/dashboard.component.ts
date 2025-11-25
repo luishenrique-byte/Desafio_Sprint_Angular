@@ -33,11 +33,11 @@ export class DashboardComponent implements OnInit{
   carregarListaGeral() {
     this.vehicleService.getVehicles().subscribe({
       next: (dados) => {
-        this.listaVeiculos = dados;
+        this.listaVeiculos = dados.vehicles;
         
         // 2. Garante que o primeiro carro seja selecionado na inicialização
         if (dados.length > 0) {
-          this.veiculoSelecionado = dados[0]; 
+          this.veiculoSelecionado = this.listaVeiculos[0]; 
         }
       },
       error: (err) => {
